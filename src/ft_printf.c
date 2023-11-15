@@ -6,9 +6,12 @@
 /*   By: abakhaev <abakhaev@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/15 13:42:14 by abakhaev          #+#    #+#             */
-/*   Updated: 2023/11/15 15:01:44 by abakhaev         ###   ########.fr       */
+/*   Updated: 2023/11/15 15:31:18 by abakhaev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 int ft_print(const char *str, ...)
+{
+	
+}
