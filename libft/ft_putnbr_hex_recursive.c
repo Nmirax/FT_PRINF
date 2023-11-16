@@ -1,26 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstsize_bonus.c                                 :+:      :+:    :+:   */
+/*   ft_putnbr_hex_recursive.c                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abakhaev <abakhaev@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/31 12:11:22 by abakhaev          #+#    #+#             */
-/*   Updated: 2023/11/14 19:06:30 by abakhaev         ###   ########.fr       */
+/*   Created: 2023/11/16 18:04:13 by abakhaev          #+#    #+#             */
+/*   Updated: 2023/11/16 19:50:45 by abakhaev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "include/ft_printf.h"
 
-int	ft_lstsize(t_list *lst)
+void	ft_putnbr_hex_recursive(unsigned int n, char *hex_digits)
 {
-	unsigned int	i;
-
-	i = 0;
-	while (lst != NULL)
+	if (n >= 16)
 	{
-		lst = lst->next;
-		i++;
+		ft_putnbr_hex_recursive(n / 16, hex_digits);
+		ft_putnbr_hex_recursive(n % 16, hex_digits);
 	}
-	return (i);
+	else
+	{
+		ft_putchar(hex_digits[n]);
+	}
 }

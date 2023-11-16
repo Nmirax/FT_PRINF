@@ -1,21 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstdelone_bonus.c                               :+:      :+:    :+:   */
+/*   ft_putnbr_dec_recursive.c                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abakhaev <abakhaev@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/31 14:03:30 by abakhaev          #+#    #+#             */
-/*   Updated: 2023/11/14 18:56:06 by abakhaev         ###   ########.fr       */
+/*   Created: 2023/11/16 18:22:04 by abakhaev          #+#    #+#             */
+/*   Updated: 2023/11/16 19:50:37 by abakhaev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "include/ft_printf.h"
 
-void	ft_lstdelone(t_list *lst, void (*del)(void *))
+void	ft_putnbr_dec_recursive(unsigned int n, char *dec_digits)
 {
-	if (!lst || !del)
-		return ;
-	del(lst ->content);
-	free(lst);
+	if (n >= 16)
+	{
+		ft_putnbr_dec_recursive(n / 10, dec_digits);
+		ft_putnbr_dec_recursive(n % 10, dec_digits);
+	}
+	else
+	{
+		ft_putchar(dec_digits[n]);
+	}
 }

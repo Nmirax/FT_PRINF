@@ -1,26 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_tolower.c                                       :+:      :+:    :+:   */
+/*   ft_putchar.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abakhaev <abakhaev@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/19 16:09:11 by abakhaev          #+#    #+#             */
-/*   Updated: 2023/11/14 19:25:08 by abakhaev         ###   ########.fr       */
+/*   Created: 2023/11/16 12:47:14 by abakhaev          #+#    #+#             */
+/*   Updated: 2023/11/16 12:47:51 by abakhaev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-
-int	ft_tolower(int c)
+void	ft_putchar(int c)
 {
-	if (c >= 65 && c <= 90)
-		c += 32;
-	return (c);
+	write (1, &c, 1);
 }
-
-// int main()
-// {
-// printf("%c",ft_tolower('A'));
-// 	return 0;
-// }

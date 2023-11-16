@@ -1,20 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isalpha.c                                       :+:      :+:    :+:   */
+/*   ft_putnbr_recursive.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abakhaev <abakhaev@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/16 15:41:36 by abakhaev          #+#    #+#             */
-/*   Updated: 2023/11/14 18:42:47 by abakhaev         ###   ########.fr       */
+/*   Created: 2023/11/16 19:47:50 by abakhaev          #+#    #+#             */
+/*   Updated: 2023/11/16 19:50:51 by abakhaev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "include/ft_printf.h"
 
-int	ft_isalpha(int c)
+void	ft_putnbr_recursive(int n, char *digits)
 {
-	if ((c >= 65 && c <= 90) || (c >= 97 && c <= 122))
-		return (1);
-	return (0);
+	if (n < 0)
+	{
+		ft_putchar('-');
+		n = -n;
+	}
+	if (n >= 10)
+	{
+		ft_putnbr_recursive(n / 10, digits);
+		ft_putnbr_recursive(n % 10, digits);
+	}
+	else
+	{
+		ft_putchar(digits[n]);
+	}
 }

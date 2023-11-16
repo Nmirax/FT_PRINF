@@ -1,30 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_printptr.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abakhaev <abakhaev@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/16 18:26:58 by abakhaev          #+#    #+#             */
-/*   Updated: 2023/11/14 19:20:46 by abakhaev         ###   ########.fr       */
+/*   Created: 2023/11/16 16:59:31 by abakhaev          #+#    #+#             */
+/*   Updated: 2023/11/16 19:50:21 by abakhaev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "include/ft_printf.h"
 
-size_t	ft_strlen(const char *s)
+void	ft_printptr(void *ptr)
 {
-	int	i;
-
-	i = 0;
-	while (s[i] != '\0')
-		i++;
-	return (i);
-}	
-
-/*
-int main(void)
-{
-	printf("%d",ft_strlen("Helloooo"));
+	write(1, "0x", 2);
+	ft_puthex((unsigned long long)ptr);
 }
-*/
