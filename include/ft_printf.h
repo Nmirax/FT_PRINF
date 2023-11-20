@@ -6,7 +6,7 @@
 /*   By: abakhaev <abakhaev@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/15 14:29:47 by abakhaev          #+#    #+#             */
-/*   Updated: 2023/11/16 18:55:34 by abakhaev         ###   ########.fr       */
+/*   Updated: 2023/11/20 18:39:58 by abakhaev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,13 +19,20 @@
 # include <string.h>
 # include <stdarg.h>
 
-void	ft_printchar(int c);
-void	ft_putchar(int c);
-void	ft_printstr(char *str);
+int		ft_printchar(int c);
 void	ft_printstr(char *str);
 void	ft_putnbr_hex_recursive(unsigned int n, char *hex_digits);
 void	ft_printdecnbr(unsigned int n);
 void	ft_putnbr_dec_recursive(unsigned int n, char *dec_digits);
-void	ft_printptr(void *ptr);
-
+int		ft_printptr(unsigned int ptr);
+void	ft_printhex(unsigned int n);
+void	ft_printinteger(unsigned int n);
+void	ft_printuphex(unsigned int n);
+void	ft_putnbr_recursive(int n, char *digits);
+void	ft_printunsigned(unsigned int n);
+void	ft_printhexmaj(unsigned int n);
+void	ft_printhexlowcase(unsigned int n);
+void	ft_printpercent(unsigned int n);
+int		ft_searchformat(va_list args, const char format);
+int		ft_printf(const char *str, ...);
 #endif
