@@ -6,7 +6,7 @@
 /*   By: abakhaev <abakhaev@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/15 13:42:14 by abakhaev          #+#    #+#             */
-/*   Updated: 2023/11/20 18:40:28 by abakhaev         ###   ########.fr       */
+/*   Updated: 2023/11/22 10:38:03 by abakhaev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,19 +19,19 @@ int	ft_searchformat(va_list args, const char format)
 	else if (format == 's')
 		ft_printstr(va_arg(args, char *));
 	else if (format == 'p')
-		ft_printptr(va_arg(args, unsigned int));
+		ft_printptr(va_arg(args, void *));
 	else if (format == 'd')
 		ft_printdecnbr(va_arg(args, int));
 	else if (format == 'i')
 		ft_printinteger(va_arg(args, int));
 	else if (format == 'u')
-		ft_printunsigned(va_arg(args, unsigned int));
+		ft_printunsigned(va_arg(args, int));
 	else if (format == 'x')
-		ft_printhexlowcase(va_arg(args, unsigned int));
+		ft_printhexlowcase(va_arg(args, void *));
 	else if (format == 'X')
-		ft_printhexmaj(va_arg(args, unsigned int));
+		ft_printhexmaj(va_arg(args, void *));
 	else if (format == '%')
-		ft_printpercent(va_arg(args, int));
+		ft_printpercent();
 	return (0);
 }
 

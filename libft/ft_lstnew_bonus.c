@@ -1,28 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printptr.c                                      :+:      :+:    :+:   */
+/*   ft_lstnew_bonus.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abakhaev <abakhaev@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/22 12:26:51 by abakhaev          #+#    #+#             */
-/*   Updated: 2023/11/22 15:05:11 by abakhaev         ###   ########.fr       */
+/*   Created: 2023/10/31 11:30:16 by abakhaev          #+#    #+#             */
+/*   Updated: 2023/11/14 19:05:28 by abakhaev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/ft_printf.h"
+#include "libft.h"
 
-int	ft_printptr(void *ptr)
+t_list	*ft_lstnew(void *content)
 {
-	int	len;
+	t_list	*new;
 
-	len = 0;
-	if (ptr == NULL)
-		len += ft_printstr("0x0");
-	else
-	{
-		len = ft_printstr("0x");
-		len += ft_printhex((insigned long)ptr, 'x');
-	}
-	return (len);
+	new = malloc(sizeof(t_list));
+	if (!new)
+		return (NULL);
+	new ->content = content;
+	new ->next = NULL;
+	return (new);
 }

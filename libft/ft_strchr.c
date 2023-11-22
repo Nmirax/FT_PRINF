@@ -1,26 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr_dec_recursive.c                          :+:      :+:    :+:   */
+/*   ft_strchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abakhaev <abakhaev@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/16 18:22:04 by abakhaev          #+#    #+#             */
-/*   Updated: 2023/11/20 12:28:42 by abakhaev         ###   ########.fr       */
+/*   Created: 2023/10/20 14:05:00 by abakhaev          #+#    #+#             */
+/*   Updated: 2023/11/14 19:13:35 by abakhaev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/ft_printf.h"
+#include "libft.h"
 
-void	ft_putnbr_dec_recursive(unsigned int n, char *dec_digits)
+char	*ft_strchr(const char *s, int c)
 {
-	if (n >= 16)
+	while (*s)
 	{
-		ft_putnbr_dec_recursive(n / 10, dec_digits);
-		ft_putnbr_dec_recursive(n % 10, dec_digits);
+		if (*s == (char)c)
+			return ((char *)s);
+		s++;
 	}
+	if (*s == (char)c)
+		return ((char *)s);
 	else
-	{
-		ft_printchar(dec_digits[n]);
-	}
+		return (NULL);
 }

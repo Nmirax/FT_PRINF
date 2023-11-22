@@ -1,18 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printchar.c                                     :+:      :+:    :+:   */
+/*   ft_putendl_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abakhaev <abakhaev@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/16 16:13:16 by abakhaev          #+#    #+#             */
-/*   Updated: 2023/11/16 16:23:04 by abakhaev         ###   ########.fr       */
+/*   Created: 2023/11/14 19:39:13 by abakhaev          #+#    #+#             */
+/*   Updated: 2023/11/14 20:16:56 by abakhaev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "include/ft_printf.h"
+#include "libft.h"
 
-void	ft_printchar(int c)
+void	ft_putendl_fd(char *s, int fd)
 {
-	write(1, &c, 1);
+	int		i;
+	char	c;
+
+	i = 0;
+	c = '\n';
+	while (s[i])
+	{
+		write(fd, &s[i], 1);
+		i++;
+	}
+	write(fd, &c, 1);
 }

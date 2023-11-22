@@ -1,28 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printptr.c                                      :+:      :+:    :+:   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abakhaev <abakhaev@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/22 12:26:51 by abakhaev          #+#    #+#             */
-/*   Updated: 2023/11/22 15:05:11 by abakhaev         ###   ########.fr       */
+/*   Created: 2023/10/24 14:39:27 by abakhaev          #+#    #+#             */
+/*   Updated: 2023/11/16 11:42:13 by abakhaev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/ft_printf.h"
+#include "libft.h"
 
-int	ft_printptr(void *ptr)
+int	ft_atoi(const char *nptr)
 {
-	int	len;
+	int	i;
+	int	j;
+	int	k;
 
-	len = 0;
-	if (ptr == NULL)
-		len += ft_printstr("0x0");
-	else
+	i = 0;
+	j = 1;
+	k = 0;
+	while ((nptr[i] >= 9 && nptr[i] <= 13) || nptr[i] == 32)
+		i++;
+	if (((nptr[i] == '-')) || ((nptr[i] == '+')))
 	{
-		len = ft_printstr("0x");
-		len += ft_printhex((insigned long)ptr, 'x');
+		if (nptr[i] == '-')
+			j *= -1;
+		i++;
 	}
-	return (len);
+	while ((nptr[i] >= '0' && nptr[i] <= '9'))
+	{
+		k = (k * 10) + nptr[i] - 48;
+		i++;
+	}
+	return (k * j);
 }

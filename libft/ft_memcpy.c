@@ -1,28 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printptr.c                                      :+:      :+:    :+:   */
+/*   ft_memcpyy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abakhaev <abakhaev@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/22 12:26:51 by abakhaev          #+#    #+#             */
-/*   Updated: 2023/11/22 15:05:11 by abakhaev         ###   ########.fr       */
+/*   Created: 2023/11/14 19:34:20 by abakhaev          #+#    #+#             */
+/*   Updated: 2023/11/14 19:35:28 by abakhaev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/ft_printf.h"
+#include "libft.h"
 
-int	ft_printptr(void *ptr)
+void	*ft_memcpy(void *dest, const void *src, size_t n)
 {
-	int	len;
+	unsigned int	i;
 
-	len = 0;
-	if (ptr == NULL)
-		len += ft_printstr("0x0");
-	else
+	i = 0;
+	if (!dest && !src)
+		return (NULL);
+	while (i < n)
 	{
-		len = ft_printstr("0x");
-		len += ft_printhex((insigned long)ptr, 'x');
+		((unsigned char *)dest)[i] = ((unsigned char *)src)[i];
+		i++;
 	}
-	return (len);
+	return (dest);
 }
+// int main()
+// {
+//     unsigned char dest[] = "Hakuna";
+// 	unsigned char src[] = "Mtatta";
+// 	printf("%s", (unsigned char *)ft_memcpy(src,dest,13));
+// }

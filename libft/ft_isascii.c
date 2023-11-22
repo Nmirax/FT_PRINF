@@ -1,19 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printptr.c                                      :+:      :+:    :+:   */
+/*   ft_isasciii.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abakhaev <abakhaev@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/16 16:59:31 by abakhaev          #+#    #+#             */
-/*   Updated: 2023/11/16 19:50:21 by abakhaev         ###   ########.fr       */
+/*   Created: 2023/11/14 20:16:07 by abakhaev          #+#    #+#             */
+/*   Updated: 2023/11/14 20:16:27 by abakhaev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "include/ft_printf.h"
+#include "libft.h"
 
-void	ft_printptr(void *ptr)
+int	ft_isascii(int c)
 {
-	write(1, "0x", 2);
-	ft_puthex((unsigned long long)ptr);
+	if (c >= 0 && c <= 127)
+		return (1);
+	return (0);
 }

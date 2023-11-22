@@ -5,19 +5,17 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: abakhaev <abakhaev@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/16 12:45:00 by abakhaev          #+#    #+#             */
-/*   Updated: 2023/11/20 12:34:32 by abakhaev         ###   ########.fr       */
+/*   Created: 2023/11/22 10:36:02 by abakhaev          #+#    #+#             */
+/*   Updated: 2023/11/22 10:40:03 by abakhaev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/ft_printf.h"
 
-void	ft_printstr(char *str)
+int	ft_printstr(char *str)
 {
-	int	i;
-
-	i = 0;
-	while (!str)
-		ft_printchar(str[i]);
-	i++;
+	if (!str)
+		str = "(null)";
+	ft_putstr_fd(str, 1);
+	return (ft_strlen(s));
 }

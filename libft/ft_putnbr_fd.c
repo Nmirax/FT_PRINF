@@ -1,28 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printptr.c                                      :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abakhaev <abakhaev@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/22 12:26:51 by abakhaev          #+#    #+#             */
-/*   Updated: 2023/11/22 15:05:11 by abakhaev         ###   ########.fr       */
+/*   Created: 2023/10/30 16:44:16 by abakhaev          #+#    #+#             */
+/*   Updated: 2023/11/14 20:07:42 by abakhaev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/ft_printf.h"
+#include "libft.h"
 
-int	ft_printptr(void *ptr)
+void	ft_putnbr_fd(int n, int fd)
 {
-	int	len;
+	unsigned int	nb;
+	char			c;
 
-	len = 0;
-	if (ptr == NULL)
-		len += ft_printstr("0x0");
+	if (n < 0)
+	{
+		write(fd, "-", 1);
+		nb = -n;
+	}
 	else
 	{
-		len = ft_printstr("0x");
-		len += ft_printhex((insigned long)ptr, 'x');
+		nb = n;
 	}
-	return (len);
+	if (nb > 9)
+	{
+		ft_putnbr_fd(nb / 10, fd);
+	}
+	c = nb % 10 + '0';
+	write(fd, &c, 1);
 }

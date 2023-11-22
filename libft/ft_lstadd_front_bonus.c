@@ -1,31 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr_recursive.c                              :+:      :+:    :+:   */
+/*   ft_lstadd_front_bonus.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abakhaev <abakhaev@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/16 19:47:50 by abakhaev          #+#    #+#             */
-/*   Updated: 2023/11/16 19:50:51 by abakhaev         ###   ########.fr       */
+/*   Created: 2023/10/31 11:58:47 by abakhaev          #+#    #+#             */
+/*   Updated: 2023/11/14 18:53:37 by abakhaev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "include/ft_printf.h"
+#include "libft.h"
 
-void	ft_putnbr_recursive(int n, char *digits)
+void	ft_lstadd_front(t_list **lst, t_list *new)
 {
-	if (n < 0)
-	{
-		ft_putchar('-');
-		n = -n;
-	}
-	if (n >= 10)
-	{
-		ft_putnbr_recursive(n / 10, digits);
-		ft_putnbr_recursive(n % 10, digits);
-	}
-	else
-	{
-		ft_putchar(digits[n]);
-	}
+	if (!new)
+		return ;
+	if (*lst)
+		new->next = *lst;
+	*lst = new;
 }

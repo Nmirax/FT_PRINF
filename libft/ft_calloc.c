@@ -1,28 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printptr.c                                      :+:      :+:    :+:   */
+/*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abakhaev <abakhaev@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/22 12:26:51 by abakhaev          #+#    #+#             */
-/*   Updated: 2023/11/22 15:05:11 by abakhaev         ###   ########.fr       */
+/*   Created: 2023/10/24 16:01:53 by abakhaev          #+#    #+#             */
+/*   Updated: 2023/11/16 11:40:32 by abakhaev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/ft_printf.h"
+#include "libft.h"
 
-int	ft_printptr(void *ptr)
+void	*ft_calloc(size_t nmemb, size_t size)
 {
-	int	len;
+	void	*ptr;
 
-	len = 0;
-	if (ptr == NULL)
-		len += ft_printstr("0x0");
-	else
-	{
-		len = ft_printstr("0x");
-		len += ft_printhex((insigned long)ptr, 'x');
-	}
-	return (len);
+	ptr = malloc(nmemb * size);
+	if (!ptr)
+		return (NULL);
+	ft_bzero(ptr, nmemb * size);
+	return (ptr);
 }

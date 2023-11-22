@@ -1,28 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printptr.c                                      :+:      :+:    :+:   */
+/*   ft_itoa_base.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abakhaev <abakhaev@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/22 12:26:51 by abakhaev          #+#    #+#             */
-/*   Updated: 2023/11/22 15:05:11 by abakhaev         ###   ########.fr       */
+/*   Created: 2023/11/22 15:06:54 by abakhaev          #+#    #+#             */
+/*   Updated: 2023/11/22 15:06:59 by abakhaev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/ft_printf.h"
+#include "../includes/ft_printf.h"
 
-int	ft_printptr(void *ptr)
+char	*ft_itoa_base(unsigned long n, char hex[16])
 {
-	int	len;
+	int		i;
+	char	*tab;
+	char	*result;
 
-	len = 0;
-	if (ptr == NULL)
-		len += ft_printstr("0x0");
-	else
+	tab = ft_calloc(17, sizeof(char));
+	if (!tab)
+		return (NULL);
+	i = 16;
+	while (n)
 	{
-		len = ft_printstr("0x");
-		len += ft_printhex((insigned long)ptr, 'x');
+		tab[--i] = hex[n % 16];
+		n /= 16;
 	}
-	return (len);
+	result = ft_strdup(tab + i);
+	free(tab);
+	return (result);
 }

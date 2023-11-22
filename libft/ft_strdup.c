@@ -1,28 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printptr.c                                      :+:      :+:    :+:   */
+/*   ft_strdupe.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abakhaev <abakhaev@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/22 12:26:51 by abakhaev          #+#    #+#             */
-/*   Updated: 2023/11/22 15:05:11 by abakhaev         ###   ########.fr       */
+/*   Created: 2023/11/14 19:41:43 by abakhaev          #+#    #+#             */
+/*   Updated: 2023/11/14 19:44:13 by abakhaev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/ft_printf.h"
+#include "libft.h"
 
-int	ft_printptr(void *ptr)
+static void	ft_strcpy(char *dest, const char *src)
 {
-	int	len;
+	int	i;
 
-	len = 0;
-	if (ptr == NULL)
-		len += ft_printstr("0x0");
-	else
+	i = 0;
+	while (src[i])
 	{
-		len = ft_printstr("0x");
-		len += ft_printhex((insigned long)ptr, 'x');
+		dest[i] = src[i];
+		i++;
 	}
-	return (len);
+	dest[i] = '\0';
+}
+
+char	*ft_strdup(const char *s)
+{
+	char	*dp;
+
+	dp = ft_calloc(ft_strlen(s) +1, sizeof(char));
+	if (!dp)
+		return (NULL);
+	ft_strcpy(dp, (char *)s);
+	return (dp);
 }

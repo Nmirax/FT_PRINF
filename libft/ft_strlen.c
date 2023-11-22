@@ -1,31 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr_recursive.c                              :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abakhaev <abakhaev@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/16 19:47:50 by abakhaev          #+#    #+#             */
-/*   Updated: 2023/11/20 12:35:10 by abakhaev         ###   ########.fr       */
+/*   Created: 2023/10/16 18:26:58 by abakhaev          #+#    #+#             */
+/*   Updated: 2023/11/14 19:20:46 by abakhaev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/ft_printf.h"
+#include "libft.h"
 
-void	ft_putnbr_recursive(int n, char *digits)
+size_t	ft_strlen(const char *s)
 {
-	if (n < 0)
-	{
-		ft_printchar('-');
-		n = -n;
-	}
-	if (n >= 10)
-	{
-		ft_putnbr_recursive(n / 10, digits);
-		ft_putnbr_recursive(n % 10, digits);
-	}
-	else
-	{
-		ft_printchar(digits[n]);
-	}
+	int	i;
+
+	i = 0;
+	while (s[i] != '\0')
+		i++;
+	return (i);
+}	
+
+/*
+int main(void)
+{
+	printf("%d",ft_strlen("Helloooo"));
 }
+*/

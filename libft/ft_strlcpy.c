@@ -1,28 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printptr.c                                      :+:      :+:    :+:   */
+/*   ft_strlcpyy.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abakhaev <abakhaev@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/22 12:26:51 by abakhaev          #+#    #+#             */
-/*   Updated: 2023/11/22 15:05:11 by abakhaev         ###   ########.fr       */
+/*   Created: 2023/11/14 19:46:47 by abakhaev          #+#    #+#             */
+/*   Updated: 2023/11/14 19:47:55 by abakhaev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/ft_printf.h"
+#include "libft.h"
 
-int	ft_printptr(void *ptr)
+size_t	ft_strlcpy(char *dest, const char *src, size_t size)
 {
-	int	len;
+	size_t	i;
 
-	len = 0;
-	if (ptr == NULL)
-		len += ft_printstr("0x0");
-	else
+	if (size == 0)
+		return (ft_strlen(src));
+	i = 0;
+	while (src[i] != '\0' && i < size - 1)
 	{
-		len = ft_printstr("0x");
-		len += ft_printhex((insigned long)ptr, 'x');
+		dest[i] = src[i];
+		i++;
 	}
-	return (len);
+	dest[i] = '\0';
+	return (ft_strlen(src));
 }
+
+// int main()
+// {
+// char src[] = "Hell164";
+// char dest[3];
+// ft_strlcpy(dest, src,40);
+// printf("%s",dest);
+// }

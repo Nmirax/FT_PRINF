@@ -1,28 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printptr.c                                      :+:      :+:    :+:   */
+/*   ft_bzero.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abakhaev <abakhaev@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/22 12:26:51 by abakhaev          #+#    #+#             */
-/*   Updated: 2023/11/22 15:05:11 by abakhaev         ###   ########.fr       */
+/*   Created: 2023/10/18 12:54:02 by abakhaev          #+#    #+#             */
+/*   Updated: 2023/11/14 18:42:22 by abakhaev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/ft_printf.h"
+#include "libft.h"
 
-int	ft_printptr(void *ptr)
+void	ft_bzero(void *str, size_t n)
 {
-	int	len;
-
-	len = 0;
-	if (ptr == NULL)
-		len += ft_printstr("0x0");
-	else
-	{
-		len = ft_printstr("0x");
-		len += ft_printhex((insigned long)ptr, 'x');
-	}
-	return (len);
+	ft_memset(str, 0, n);
 }

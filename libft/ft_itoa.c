@@ -1,28 +1,54 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printptr.c                                      :+:      :+:    :+:   */
+/*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abakhaev <abakhaev@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/22 12:26:51 by abakhaev          #+#    #+#             */
-/*   Updated: 2023/11/22 15:05:11 by abakhaev         ###   ########.fr       */
+/*   Created: 2023/10/29 17:48:30 by abakhaev          #+#    #+#             */
+/*   Updated: 2023/11/16 11:50:54 by abakhaev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/ft_printf.h"
+#include "libft.h"
 
-int	ft_printptr(void *ptr)
+int	ft_nbrlen(int n)
 {
 	int	len;
 
 	len = 0;
-	if (ptr == NULL)
-		len += ft_printstr("0x0");
-	else
+	if (n <= 0)
+		len++;
+	while (n != 0)
 	{
-		len = ft_printstr("0x");
-		len += ft_printhex((insigned long)ptr, 'x');
+		n /= 10;
+		len++;
 	}
 	return (len);
+}
+
+char	*ft_itoa(int n)
+{
+	char	*str;
+	long	nbr;
+	int		len;
+
+	nbr = n;
+	len = ft_nbrlen(nbr);
+	str = (char *)malloc(sizeof(char) * (len + 1));
+	if (!str)
+		return (NULL);
+	str[len] = '\0';
+	if (nbr < 0)
+	{
+		str[0] = '-';
+		nbr *= -1;
+	}
+	while (nbr >= 10)
+	{
+		str[--len] = (nbr % 10) + '0';
+		nbr /= 10;
+	}
+	str[--len] = nbr + '0';
+	return (str);
 }
