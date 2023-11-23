@@ -6,15 +6,14 @@
 /*   By: abakhaev <abakhaev@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/22 11:53:43 by abakhaev          #+#    #+#             */
-/*   Updated: 2023/11/22 11:54:20 by abakhaev         ###   ########.fr       */
+/*   Updated: 2023/11/23 11:02:16 by abakhaev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/ft_printf.h"
 
-int	ft_printpercent(unsigned int n)
+int	ft_printpercent(void)
 {
-	if (n == '%')
-		ft_printchar('%');
+	ft_printchar('%');
 	return (1);
 }

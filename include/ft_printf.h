@@ -6,7 +6,7 @@
 /*   By: abakhaev <abakhaev@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/15 14:29:47 by abakhaev          #+#    #+#             */
-/*   Updated: 2023/11/22 15:08:23 by abakhaev         ###   ########.fr       */
+/*   Updated: 2023/11/23 10:56:06 by abakhaev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,17 +14,17 @@
 # define FT_PRINTF_H
 
 # include <unistd.h>
-# include <stdio.h>
-# include <stdlib.h>
-# include <string.h>
 # include <stdarg.h>
 # include "../libft/libft.h"
 
-int		ft_printchar(int c);
-int		ft_printstr(char *str);
-int		ft_searchformat(va_list args, const char format);
 int		ft_printf(const char *str, ...);
-int		ft_printdecnbr(int n);
+int		ft_printchar(int c);
+int		ft_printhex(unsigned long n, char hex);
+int		ft_printstr(char *str);
+int		ft_printint(int n);
 char	*ft_itoa_base(unsigned long n, char hex[16]);
 int		ft_printptr(void *ptr);
+int		ft_printpercent(void);
+int		ft_printunsigned(unsigned int n);
+char	*ft_decimal_itoa(unsigned int n);
 #endif

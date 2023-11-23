@@ -6,7 +6,7 @@
 /*   By: abakhaev <abakhaev@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/22 12:26:51 by abakhaev          #+#    #+#             */
-/*   Updated: 2023/11/22 15:05:11 by abakhaev         ###   ########.fr       */
+/*   Updated: 2023/11/23 11:11:20 by abakhaev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int	ft_printptr(void *ptr)
 	else
 	{
 		len = ft_printstr("0x");
-		len += ft_printhex((insigned long)ptr, 'x');
+		len += ft_printhex((unsigned long)ptr, 'x');
 	}
 	return (len);
 }

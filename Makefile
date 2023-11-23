@@ -6,50 +6,49 @@
 #    By: abakhaev <abakhaev@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/20 15:43:25 by abakhaev          #+#    #+#              #
-#    Updated: 2023/11/20 17:55:33 by abakhaev         ###   ########.fr        #
+#    Updated: 2023/11/23 11:09:16 by abakhaev         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 
-SRC = src/ft_printchar.c \
-	  src/ft_printf.c \
-      src/ft_printdecnbr.c \
+SRCS = src/ft_decimal_itoa.c \
+      src/ft_itoa_base.c \
+      src/ft_printchar.c \
+      src/ft_printf.c \
       src/ft_printhex.c \
-      src/ft_printhexlowcase.c \
-      src/ft_printhexmaj.c \
-      src/ft_printinteger.c \
+      src/ft_printint.c \
       src/ft_printpercent.c \
       src/ft_printptr.c \
       src/ft_printstr.c \
-      src/ft_printunsigned.c \
-      src/ft_printuphex.c \
-      src/ft_putnbr_dec_recursive.c \
-      src/ft_putnbr_hex_recursive.c \
-      src/ft_putnbr_recursive.c
 
-OBJS = ${SRC:.c=.o}
+OBJS = ${SRCS:.c=.o}
 
-CC = gcc
+CC = cc
 CFLAGS = -Wall -Werror -Wextra
 AR = ar rcs
 RM = rm -f
 
+LIBFT_DIR = ./libft
+LIBFT = ${LIBFT_DIR}/libft.a
 NAME = libftprintf.a
 
-all: ${NAME}
+all:	${NAME}
 
-${NAME}: ${OBJS}
+${NAME}:	${LIBFT} ${OBJS}
+	cp ${LIBFT} ${NAME}
 	${AR} ${NAME} ${OBJS}
 
-.c.o:
-	${CC} ${CFLAGS} -c $< -o ${<:.c=.o}
+${LIBFT}:
+	make -C ${LIBFT_DIR}
 
 clean:
+	make -C ${LIBFT_DIR} clean
 	${RM} ${OBJS}
 
-fclean: clean
+fclean:	clean
+	make -C  ${LIBFT_DIR} fclean
 	${RM} ${NAME}
 
-re: fclean all
+re:	fclean all
 
-.PHONY: all clean fclean re
+.PHONY:	all clean fclean re libft

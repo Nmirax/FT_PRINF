@@ -6,11 +6,11 @@
 /*   By: abakhaev <abakhaev@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/22 15:06:54 by abakhaev          #+#    #+#             */
-/*   Updated: 2023/11/22 15:06:59 by abakhaev         ###   ########.fr       */
+/*   Updated: 2023/11/23 10:57:01 by abakhaev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/ft_printf.h"
+#include "../include/ft_printf.h"
 
 char	*ft_itoa_base(unsigned long n, char hex[16])
 {

@@ -6,7 +6,7 @@
 /*   By: abakhaev <abakhaev@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/15 13:42:14 by abakhaev          #+#    #+#             */
-/*   Updated: 2023/11/22 10:38:03 by abakhaev         ###   ########.fr       */
+/*   Updated: 2023/11/23 11:17:06 by abakhaev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,50 +14,47 @@
 //on va chercher le format a print
 int	ft_searchformat(va_list args, const char format)
 {
+	int	len;
+
+	len = 0;
 	if (format == 'c')
-		ft_printchar(va_arg(args, int));
+		len = ft_printchar(va_arg(args, int));
+	else if (format == 'd' || format == 'i')
+		len += ft_printint(va_arg(args, int));
 	else if (format == 's')
-		ft_printstr(va_arg(args, char *));
+		len += ft_printstr(va_arg(args, char *));
 	else if (format == 'p')
-		ft_printptr(va_arg(args, void *));
-	else if (format == 'd')
-		ft_printdecnbr(va_arg(args, int));
-	else if (format == 'i')
-		ft_printinteger(va_arg(args, int));
+		len += ft_printptr(va_arg(args, void *));
+	else if (format == 'x' || format == 'X')
+		len += ft_printhex(va_arg(args, unsigned int), format);
 	else if (format == 'u')
-		ft_printunsigned(va_arg(args, int));
-	else if (format == 'x')
-		ft_printhexlowcase(va_arg(args, void *));
-	else if (format == 'X')
-		ft_printhexmaj(va_arg(args, void *));
+		len += ft_printunsigned(va_arg(args, unsigned int));
 	else if (format == '%')
-		ft_printpercent();
-	return (0);
+		len += ft_printpercent();
+	return (len);
 }
 
 //cette fonction va etre la structure de notre code 
-int	ft_printf(const char *str, ...)
+int	ft_printf(const char *s, ...)
 {
-	int		i;
 	int		len;
+	int		i;
 	va_list	args;
 
+	if (!s)
+		return (0);
+	va_start(args, s);
 	i = 0;
 	len = 0;
-	if (!str)
-		return (0);
-	va_start(args, str);
-	while (str[i])
+	while (s[i])
 	{
-		if (str[i + 1] == '\0')
-			return (-1);
-		if (str[i] == '%')
+		if (s[i] == '%')
 		{
-			len += ft_searchformat(args, str[i + 1]);
+			len += ft_searchformat(args, s[i + 1]);
 			i++;
 		}
 		else
-			ft_printchar(str[i]);
+			len += ft_printchar(s[i]);
 		i++;
 	}
 	va_end(args);
